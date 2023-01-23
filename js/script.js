@@ -1,5 +1,4 @@
 // Declarando botoes e checkbox.
-const passInput = document.querySelector("#inputPasswordId");
 const lenInput = document.querySelector("#inputLengthId");
 const infoLength = document.querySelector('label[for="labelLengthId"]');
 const btnGerar = document.querySelector("#btnGerar");
@@ -28,17 +27,18 @@ btnGerar.addEventListener("click", () => {
     chkSymbols.checked,
     chkLower.checked,
     chkUpper.checked,
-    lenInput.value);
+    lenInput.value
+    );
   });
 
-  const generatePassword = (
+  let generatePassword = (
     hasNumbers,
     hasSymbols,
     hasLowercase,
     hasUppercase,
     lenght
   ) => {
-    const newArray = [
+    let newArray = [
       ...(hasNumbers ? numbers : []),
       ...(hasSymbols ? symbols : []),
       ...(hasLowercase ? LowercaseCaracters : []),
@@ -52,9 +52,9 @@ btnGerar.addEventListener("click", () => {
     for (let i = 0; i < lenght; i++){
         const randomIndex = Math.floor(Math.random() * newArray.length);
         password += newArray[randomIndex];
+      
     }
 
-
-    passInput.value = password;
+    document.getElementById('inputPasswordId').value = password;
 
 };
